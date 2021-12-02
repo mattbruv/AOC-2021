@@ -2,7 +2,7 @@
 
 These are my answers to the Advent of Code 2021 puzzles, with a twist.
 
-I [randomly selected](langs/generate.py) 25 of the [top 50 programming languages](https://www.tiobe.com/tiobe-index/) to be able to solve each problem with a new and/or different language.
+I [randomly selected](langs/generate) 25 of the [top 50 programming languages](https://www.tiobe.com/tiobe-index/) to be able to solve each problem with a new and/or different language.
 
 Hopefull I don't suffer too much.
 
