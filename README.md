@@ -8,7 +8,7 @@ Hopefull I don't suffer too much.
 
 ## Progress
 
-- [ ] 1: Haskell - [src](src/day1/) - [problem](https://adventofcode.com/2021/day/1)
+- [x] 1: Haskell - [src](src/day1/) - [problem](https://adventofcode.com/2021/day/1)
 - [ ] 2: Kotlin - [src](src/day2/) - [problem](https://adventofcode.com/2021/day/2)
 - [ ] 3: Scheme - [src](src/day3/) - [problem](https://adventofcode.com/2021/day/3)
 - [ ] 4: Python - [src](src/day4/) - [problem](https://adventofcode.com/2021/day/4)
