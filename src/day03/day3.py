@@ -6,3 +6,6 @@ n2 = list(map(lambda x: str(~int(x) & 1), data))
 a = int(''.join(data), 2)
 b = int(''.join(n2), 2)
 print(a * b)
+
+
+# Part 2
