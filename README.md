@@ -1,35 +1,31 @@
 # Advent of Code 2021 
 
-These are my answers to the Advent of Code 2021 puzzles, with a twist.
-
-I [randomly selected](langs/generate) 25 of the [top 50 programming languages](https://www.tiobe.com/tiobe-index/) to be able to solve each problem with a new and/or different language.
-
-Hopefull I don't suffer too much.
+These are my answers to the Advent of Code 2021 puzzles.
 
 ## Progress
 
-- [x] 1: Haskell - [src](src/day01/) - [problem](https://adventofcode.com/2021/day/1)
-- [x] 2: Kotlin - [src](src/day02/) - [problem](https://adventofcode.com/2021/day/2)
-- [ ] 3: Scheme - [src](src/day03/) - [problem](https://adventofcode.com/2021/day/3)
-- [ ] 4: Python - [src](src/day04/) - [problem](https://adventofcode.com/2021/day/4)
-- [ ] 5: C++ - [src](src/day05/) - [problem](https://adventofcode.com/2021/day/5)
-- [ ] 6: Perl - [src](src/day06/) - [problem](https://adventofcode.com/2021/day/6)
-- [ ] 7: TypeScript - [src](src/day07/) - [problem](https://adventofcode.com/2021/day/7)
-- [ ] 8: Java - [src](src/day08/) - [problem](https://adventofcode.com/2021/day/8)
-- [ ] 9: Fortran - [src](src/day09/) - [problem](https://adventofcode.com/2021/day/9)
-- [ ] 10: Ruby - [src](src/day10/) - [problem](https://adventofcode.com/2021/day/10)
-- [ ] 11: C# - [src](src/day11/) - [problem](https://adventofcode.com/2021/day/11)
-- [ ] 12: Assembly language - [src](src/day12/) - [problem](https://adventofcode.com/2021/day/12)
-- [ ] 13: Erlang - [src](src/day13/) - [problem](https://adventofcode.com/2021/day/13)
-- [ ] 14: Ada - [src](src/day14/) - [problem](https://adventofcode.com/2021/day/14)
-- [ ] 15: SQL - [src](src/day15/) - [problem](https://adventofcode.com/2021/day/15)
-- [ ] 16: D - [src](src/day16/) - [problem](https://adventofcode.com/2021/day/16)
-- [ ] 17: PowerShell - [src](src/day17/) - [problem](https://adventofcode.com/2021/day/17)
-- [ ] 18: JavaScript - [src](src/day18/) - [problem](https://adventofcode.com/2021/day/18)
-- [ ] 19: Rust - [src](src/day19/) - [problem](https://adventofcode.com/2021/day/19)
-- [ ] 20: ABAP - [src](src/day20/) - [problem](https://adventofcode.com/2021/day/20)
-- [ ] 21: Dart - [src](src/day21/) - [problem](https://adventofcode.com/2021/day/21)
-- [ ] 22: SAS - [src](src/day22/) - [problem](https://adventofcode.com/2021/day/22)
-- [ ] 23: Logo - [src](src/day23/) - [problem](https://adventofcode.com/2021/day/23)
-- [ ] 24: Julia - [src](src/day24/) - [problem](https://adventofcode.com/2021/day/24)
-- [ ] 25: Lua - [src](src/day25/) - [problem](https://adventofcode.com/2021/day/25)
+- [x] - [x] [Day 1](https://adventofcode.com/2021/day/1) - [src](./src/day01)
+- [x] - [x] [Day 2](https://adventofcode.com/2021/day/2) - [src](./src/day02)
+- [x] - [ ] [Day 3](https://adventofcode.com/2021/day/3) - [src](./src/day03)
+- [ ] - [ ] [Day 4](https://adventofcode.com/2021/day/4) - [src](./src/day04)
+- [ ] - [ ] [Day 5](https://adventofcode.com/2021/day/5) - [src](./src/day05)
+- [ ] - [ ] [Day 6](https://adventofcode.com/2021/day/6) - [src](./src/day06)
+- [ ] - [ ] [Day 7](https://adventofcode.com/2021/day/7) - [src](./src/day07)
+- [ ] - [ ] [Day 8](https://adventofcode.com/2021/day/8) - [src](./src/day08)
+- [ ] - [ ] [Day 9](https://adventofcode.com/2021/day/9) - [src](./src/day09)
+- [ ] - [ ] [Day 10](https://adventofcode.com/2021/day/10) - [src](./src/day10)
+- [ ] - [ ] [Day 11](https://adventofcode.com/2021/day/11) - [src](./src/day11)
+- [ ] - [ ] [Day 12](https://adventofcode.com/2021/day/12) - [src](./src/day12)
+- [ ] - [ ] [Day 13](https://adventofcode.com/2021/day/13) - [src](./src/day13)
+- [ ] - [ ] [Day 14](https://adventofcode.com/2021/day/14) - [src](./src/day14)
+- [ ] - [ ] [Day 15](https://adventofcode.com/2021/day/15) - [src](./src/day15)
+- [ ] - [ ] [Day 16](https://adventofcode.com/2021/day/16) - [src](./src/day16)
+- [ ] - [ ] [Day 17](https://adventofcode.com/2021/day/17) - [src](./src/day17)
+- [ ] - [ ] [Day 18](https://adventofcode.com/2021/day/18) - [src](./src/day18)
+- [ ] - [ ] [Day 19](https://adventofcode.com/2021/day/19) - [src](./src/day19)
+- [ ] - [ ] [Day 20](https://adventofcode.com/2021/day/20) - [src](./src/day20)
+- [ ] - [ ] [Day 21](https://adventofcode.com/2021/day/21) - [src](./src/day21)
+- [ ] - [ ] [Day 22](https://adventofcode.com/2021/day/22) - [src](./src/day22)
+- [ ] - [ ] [Day 23](https://adventofcode.com/2021/day/23) - [src](./src/day23)
+- [ ] - [ ] [Day 24](https://adventofcode.com/2021/day/24) - [src](./src/day24)
+- [ ] - [ ] [Day 25](https://adventofcode.com/2021/day/25) - [src](./src/day25)
