@@ -4,12 +4,12 @@ These are my answers to the Advent of Code 2021 puzzles.
 
 ## Progress
 
-- [x] [Day 1](https://adventofcode.com/2021/day/1) - [src](./src/day01)
-- [x] [Day 2](https://adventofcode.com/2021/day/2) - [src](./src/day02)
-- [x] [Day 3](https://adventofcode.com/2021/day/3) - [src](./src/day03)
-- [x] [Day 4](https://adventofcode.com/2021/day/4) - [src](./src/day04)
-- [x] [Day 5](https://adventofcode.com/2021/day/5) - [src](./src/day05)
-- [ ] [Day 6](https://adventofcode.com/2021/day/6) - [src](./src/day06)
+- [x] ~~[Day 1](https://adventofcode.com/2021/day/1) - [src](./src/day01)~~
+- [x] ~~[Day 2](https://adventofcode.com/2021/day/2) - [src](./src/day02)~~
+- [x] ~~[Day 3](https://adventofcode.com/2021/day/3) - [src](./src/day03)~~
+- [x] ~~[Day 4](https://adventofcode.com/2021/day/4) - [src](./src/day04)~~
+- [x] ~~[Day 5](https://adventofcode.com/2021/day/5) - [src](./src/day05)~~
+- [x] ~~[Day 6](https://adventofcode.com/2021/day/6) - [src](./src/day06)~~
 - [ ] [Day 7](https://adventofcode.com/2021/day/7) - [src](./src/day07)
 - [ ] [Day 8](https://adventofcode.com/2021/day/8) - [src](./src/day08)
 - [ ] [Day 9](https://adventofcode.com/2021/day/9) - [src](./src/day09)
