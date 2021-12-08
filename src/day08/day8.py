@@ -7,9 +7,8 @@ def parseLine(line):
     return (digits, numbers)
 
 
-data = list(map(lambda x: x.split(" | "), open(
-    "input.txt").read().splitlines()))
-
+data = open("input.txt").read().splitlines()
+data = list(map(lambda x: x.split(" | "), data))
 data = list(map(parseLine, data))
 
 # (segments, number)
@@ -83,11 +82,11 @@ def decodeLine(line):
     return int(s)
 
 
-a = "acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab"
-b = "cdfeb fcadb cdfeb cdbaf"
+# a = "acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab"
+# b = "cdfeb fcadb cdfeb cdbaf"
+# data = (a.split(), b.split())
 
-data = (a.split(), b.split())
-print(decodeLine(data))
+print(sum(map(decodeLine, data)))
 
 # for d in data:
 #    print(decodeLine(d))
