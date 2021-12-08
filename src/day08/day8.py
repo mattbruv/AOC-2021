@@ -26,6 +26,13 @@ segs = {
 }
 
 
+def part1(line):
+    digits, nums = line
+    uniqueLens = [idx[0] for idx in uniqueChars]
+    res = list(map(len, filter(lambda x: len(x) in uniqueLens, nums)))
+    return len(res)
+
+
 def decodeLine(line):
     digits, nums = line
 
@@ -86,6 +93,7 @@ def decodeLine(line):
 # b = "cdfeb fcadb cdfeb cdbaf"
 # data = (a.split(), b.split())
 
+print(sum(map(part1, data)))
 print(sum(map(decodeLine, data)))
 
 # for d in data:
