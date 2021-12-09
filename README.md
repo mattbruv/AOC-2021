@@ -12,7 +12,7 @@ These are my answers to the Advent of Code 2021 puzzles.
 - [x] ~~[Day 6](https://adventofcode.com/2021/day/6) - [src](./src/day06)~~
 - [x] ~~[Day 7](https://adventofcode.com/2021/day/7) - [src](./src/day07)~~
 - [x] ~~[Day 8](https://adventofcode.com/2021/day/8) - [src](./src/day08)~~
-- [ ] [Day 9](https://adventofcode.com/2021/day/9) - [src](./src/day09)
+- [x] ~~[Day 9](https://adventofcode.com/2021/day/9) - [src](./src/day09)~~
 - [ ] [Day 10](https://adventofcode.com/2021/day/10) - [src](./src/day10)
 - [ ] [Day 11](https://adventofcode.com/2021/day/11) - [src](./src/day11)
 - [ ] [Day 12](https://adventofcode.com/2021/day/12) - [src](./src/day12)
