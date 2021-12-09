@@ -43,10 +43,8 @@ def getBasin(curr: list[int], index):
     if val == 9:
         return curr
     mas = list(filter(lambda x: data[x] != 9, getAdjacent(index, data)))
-    #print("Search in:", mas, curr)
     for m in mas:
         if m not in curr:
-            #print("Search add", m)
             curr += [m]
             b = getBasin(curr, m)
             curr += [x for x in b if x not in curr]
