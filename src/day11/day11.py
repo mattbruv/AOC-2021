@@ -1,5 +1,5 @@
 data = open("input.txt").read().splitlines()
-data = open("test.txt").read().splitlines()
+#data = open("test.txt").read().splitlines()
 width = len(data[0])
 height = len(data)
 data = ''.join(data)
@@ -88,32 +88,25 @@ def step(data):
     return d
 
 
-flashes = 0
+def part1(data):
+    flashes = 0
 
-for i in range(0, 100):
-    data, fs = step(data)
-    flashes += fs
-    #print(data, fs)
+    for i in range(0, 100):
+        data, fs = step(data)
+        flashes += fs
 
-print(flashes)
-
-
-i = 0
-while True:
-    i += 1
-    data, fs = step(data)
-    if i == 1:
-        break
+    return flashes
 
 
-def p(data):
-    n = 0
-    for i in range(0, len(data)):
-        x = toPoint(i)
-        print(x)
+def part2(data):
+    i = 0
+    while True:
+        i += 1
+        data, fs = step(data)
+        if len(list(filter(lambda x: x == 0, data))) == 100:
+            break
+    return i
 
 
-p(data)
-# if len(list(filter(lambda x: x == 0, data))) == 100:
-# print(data, i)
-#    break
+print(part1(data.copy()))
+print(part2(data.copy()))
