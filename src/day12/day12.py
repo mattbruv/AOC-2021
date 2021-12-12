@@ -85,18 +85,19 @@ def isFullRoute(route):
 
 caveMap = parseData(data)
 
-routes = []
+routes = set()
 for startNode in caveMap["start"]:
     routeList = list(filter(isFullRoute, traverse(
         startNode, caveMap, [], [startNode], part1=False)))
     for r in routeList:
         r = ["start"] + r
-        if r not in routes:
-            routes.append(r)
+        b = tuple(r)
+        if b not in routes:
+            routes.add(b)
 
 
-for r in routes:
-    print(','.join(r))
+# for r in routes:
+    # print(','.join(r))
 
 print(len(routes))
 
