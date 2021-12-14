@@ -5,7 +5,7 @@ dots = list(map(lambda x: x.split(","), dots))
 dots = list(map(lambda x: (int(x[0]), int(x[1])), dots))
 folds = data[1].splitlines()
 folds = list(
-    map(lambda x: (x.split("=")[0][-1], int(x.split("=")[1][0])), folds))
+    map(lambda x: (x.split("=")[0][-1], int(x.split("=")[1])), folds))
 
 width = max(map(lambda x: x[0], dots)) + 1
 height = max(map(lambda x: x[1], dots)) + 1
@@ -15,9 +15,9 @@ print(width, "x", height)
 
 def dotsToPaper(dots):
     paper = []
-    for i in range(0, height + 1):
+    for i in range(0, height):
         row = []
-        for j in range(0, width + 1):
+        for j in range(0, width):
             row.append(0)
         paper.append(row)
     for dot in dots:
@@ -77,12 +77,8 @@ big = [
 
 
 def foldUp(paper, atLine):
-    top = None
-    bottom = None
-    # if paper is odd length, ignore fold line
-    if len(paper) % 2 != 0:
-        top = paper[0:atLine]
-        bottom = paper[atLine+1::]
+    top = paper[0:atLine]
+    bottom = paper[atLine+1::]
     smallList = None
     bigList = None
     print("paper rows", len(paper), "at line:", atLine, len(top), len(bottom))
@@ -119,10 +115,9 @@ fs = {'x': foldLeft, 'y': foldUp}
 paper = dotsToPaper(dots)
 for fold in folds:
     way, atLine = fold
-    print("fold", way, "=", atLine)
-    continue
-    print("FOLDEING AT cONSTANT")
-    paper = fs[way](paper, 7)
-    printPaper(paper)
-    print(countDots(paper))
-    break
+    paper = fs[way](paper, atLine)
+
+printPaper(paper)
+print(countDots(paper))
+
+print(folds)
