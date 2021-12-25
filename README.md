@@ -2,6 +2,9 @@
 
 These are my answers to the Advent of Code 2021 puzzles.
 
+(Interesting side note, I solved Day 17 in my own programming language that I am developing,
+it was finally mature enough to solve a problem.)
+
 ## Progress
 
 - [x] ~~[Day 1](https://adventofcode.com/2021/day/1) - [src](./src/day01)~~
@@ -20,7 +23,7 @@ These are my answers to the Advent of Code 2021 puzzles.
 - [x] ~~[Day 14](https://adventofcode.com/2021/day/14) - [src](./src/day14)~~
 - [ ] [Day 15](https://adventofcode.com/2021/day/15) - [src](./src/day15)
 - [ ] [Day 16](https://adventofcode.com/2021/day/16) - [src](./src/day16)
-- [ ] [Day 17](https://adventofcode.com/2021/day/17) - [src](./src/day17)
+- [x] ~~[Day 17](https://adventofcode.com/2021/day/17) - [src](./src/day17)~~
 - [ ] [Day 18](https://adventofcode.com/2021/day/18) - [src](./src/day18)
 - [ ] [Day 19](https://adventofcode.com/2021/day/19) - [src](./src/day19)
 - [ ] [Day 20](https://adventofcode.com/2021/day/20) - [src](./src/day20)
