@@ -1,4 +1,4 @@
-# Advent of Code 2021 
+# Advent of Code 2021
 
 These are my answers to the Advent of Code 2021 puzzles.
 
@@ -27,7 +27,7 @@ it was finally mature enough to solve a problem.)
 - [ ] [Day 18](https://adventofcode.com/2021/day/18) - [src](./src/day18)
 - [ ] [Day 19](https://adventofcode.com/2021/day/19) - [src](./src/day19)
 - [ ] [Day 20](https://adventofcode.com/2021/day/20) - [src](./src/day20)
-- [ ] [Day 21](https://adventofcode.com/2021/day/21) - [src](./src/day21)
+- [x] ~~[Day 21](https://adventofcode.com/2021/day/21) - [src](./src/day21)~~
 - [ ] [Day 22](https://adventofcode.com/2021/day/22) - [src](./src/day22)
 - [ ] [Day 23](https://adventofcode.com/2021/day/23) - [src](./src/day23)
 - [ ] [Day 24](https://adventofcode.com/2021/day/24) - [src](./src/day24)
