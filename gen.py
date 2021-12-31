@@ -7,7 +7,7 @@ from requests.sessions import session
 sessionCookie = ""
 inputUrl = "https://adventofcode.com/{year}/day/{day}/input"
 
-years = range(2015, 2022)
+years = range(2015, 2021)
 # years = range(2021, 2022)
 
 
@@ -23,6 +23,11 @@ for y in years:
         # data = requests.get(reqUrl, cookies={"session": sessionCookie})
         # problemInput = data.text.strip()
         print(path)
-        data = open(path + "input.txt").read().strip()
-        open(path + "input.txt", "w").write(data)
+        # data = open(path + "input.txt").read().strip()
+        data = """input = open("input.txt").read().strip()
+
+print("{year} day {day}")""".format(
+            year=y, day=day
+        )
+        open(path + "day" + pad(day) + ".py", "w").write(data)
         # time.sleep(0.5)
