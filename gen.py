@@ -7,8 +7,8 @@ from requests.sessions import session
 sessionCookie = ""
 inputUrl = "https://adventofcode.com/{year}/day/{day}/input"
 
-# years = range(2015, 2021)
-years = range(2021, 2022)
+years = range(2015, 2022)
+# years = range(2021, 2022)
 
 
 def pad(day):
@@ -20,8 +20,9 @@ for y in years:
         dayString = "day" + str(pad(day))
         path = "./src/" + str(y) + "/" + dayString + "/"
         reqUrl = inputUrl.format(year=y, day=day)
-        data = requests.get(reqUrl, cookies={"session": sessionCookie})
-        problemInput = data.text.strip()
+        # data = requests.get(reqUrl, cookies={"session": sessionCookie})
+        # problemInput = data.text.strip()
         print(path)
-        open(path + "input.txt", "w").write(problemInput)
-        time.sleep(0.5)
+        data = open(path + "input.txt").read().strip()
+        open(path + "input.txt", "w").write(data)
+        # time.sleep(0.5)
