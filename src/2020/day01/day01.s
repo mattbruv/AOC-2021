@@ -225,15 +225,56 @@ main:
     # if n2 == 199
     # set n2 = 0, inc n1, restart
 
+Init:
+    movq $0, %rax
+    push %rax # 8(rsp) = i = 0
     movq $4, %rax
-    push %rax # 8(rsp) = i
-    push %rax #  (rsp) = j
+    push %rax #  (rsp) = j = 1
 
+LoadNums:
+    # n1 = nums[i] = ebx
     leaq nums(%rip), %rax
-    # add sp offset
     addq (%rsp), %rax
-    movl (%rax), %eax
+    movl (%rax), %ebx 
 
+    # n2 = nums[j] = ecx
+    leaq nums(%rip), %rax
+    addq 8(%rsp), %rax
+    movl (%rax), %ecx 
+
+CheckEqual2020:
+    movl %ebx, %edx
+    addl %ecx, %edx
+    cmpl $2020, %edx
+    jne NextNums
+
+LadiesAndGentlemenWeGotHim:
+    movl %ebx, %edx
+    imull %ecx, %edx
+    movl %edx, %eax
+    jp Termina
+
+
+NextNums:
+
+    # add 1 (4 bytes) to j on stack
+    addq $4, (%rsp)
+
+    # iif equals 800 (200), reset and inc I
+    cmpl $800, (%rsp)
+    jl LoadNums
+
+    # i += 1
+    addq $4, 8(%rsp)
+
+    # j = i + 1
+    movq 8(%rsp), %rdx
+    addq $4, %rdx
+    movq %rdx, (%rsp)
+    jp LoadNums
+
+
+Termina:
     # Pop 2 quads off of stack to reset it
     addq $16, %rsp
     ret

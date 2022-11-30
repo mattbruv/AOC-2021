@@ -1,11 +1,15 @@
 #include <stdio.h>
 
-int foo[2] = {1, 2};
-int x = 1;
-
 int main() {
-  //
-  int *x = &foo[0];
 
-  return *x;
+  int a = 0;
+  int b = 4;
+
+  int c = b - a;
+
+  if (c == 2020) {
+    a *= b;
+  }
+
+  return 0;
 }

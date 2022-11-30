@@ -1,17 +1,6 @@
 	.file	"test.c"
 	.text
-	.globl	foo
-	.data
-	.align 8
-foo:
-	.long	1
-	.long	2
-	.globl	x
-	.align 4
-x:
-	.long	1
 	.def	__main;	.scl	2;	.type	32;	.endef
-	.text
 	.globl	main
 	.def	main;	.scl	2;	.type	32;	.endef
 	.seh_proc	main
@@ -24,10 +13,18 @@ main:
 	.seh_stackalloc	48
 	.seh_endprologue
 	call	__main
-	leaq	foo(%rip), %rax
-	movq	%rax, -8(%rbp)
-	movq	-8(%rbp), %rax
-	movl	(%rax), %eax
+	movl	$0, -4(%rbp)
+	movl	$4, -8(%rbp)
+	movl	-8(%rbp), %eax
+	subl	-4(%rbp), %eax
+	movl	%eax, -12(%rbp)
+	cmpl	$2020, -12(%rbp)
+	jne	.L2
+	movl	-4(%rbp), %eax
+	imull	-8(%rbp), %eax
+	movl	%eax, -4(%rbp)
+.L2:
+	movl	$0, %eax
 	addq	$48, %rsp
 	popq	%rbp
 	ret
