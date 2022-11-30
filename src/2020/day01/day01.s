@@ -230,6 +230,7 @@ Init:
     push %rax # 8(rsp) = i = 0
     movq $4, %rax
     push %rax #  (rsp) = j = 1
+    # jmp LadiesAndGentlemenWeGotHim
 
 LoadNums:
     # n1 = nums[i] = ebx
@@ -252,7 +253,10 @@ LadiesAndGentlemenWeGotHim:
     movl %ebx, %edx
     imull %ecx, %edx
     movl %edx, %eax
-    jp Termina
+    # movl %ecx, %eax
+    # movq 8(%rsp), %rax
+
+    jmp Termina
 
 
 NextNums:
@@ -271,7 +275,7 @@ NextNums:
     movq 8(%rsp), %rdx
     addq $4, %rdx
     movq %rdx, (%rsp)
-    jp LoadNums
+    jmp LoadNums
 
 
 Termina:
