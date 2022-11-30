@@ -208,15 +208,34 @@ j: .long 0
 
 # 200 entries
 
+
+# RSP = nums
+
 .text
 .global main
 main:
-#    movq nums(%rip), %rdx
-    leaq nums(%rip), %rax
-    addq $4, %rax
-    movl (%rax), %eax
 
+    # load n1,
+    # load n2,
+    # see if they sum to 2020
+    # if yes, multiply them and return
+    # if no, increment n2
+
+    # inc N2:
+    # if n2 == 199
+    # set n2 = 0, inc n1, restart
+
+    movq $0, %rax
+    push %rax # 8(rsp) = i
+    push %rax #  (rsp) = j
+
+    # Pop 2 quads off of stack to reset it
+    addq $16, %rsp
     ret
+
+
+#   load base address of nums into rax
+#   leaq nums(%rip), %rax
 
 
 
