@@ -225,9 +225,14 @@ main:
     # if n2 == 199
     # set n2 = 0, inc n1, restart
 
-    movq $0, %rax
+    movq $4, %rax
     push %rax # 8(rsp) = i
     push %rax #  (rsp) = j
+
+    leaq nums(%rip), %rax
+    # add sp offset
+    addq (%rsp), %rax
+    movl (%rax), %eax
 
     # Pop 2 quads off of stack to reset it
     addq $16, %rsp
