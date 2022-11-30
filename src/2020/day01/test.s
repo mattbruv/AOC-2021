@@ -4,11 +4,11 @@
 	.data
 	.align 8
 foo:
-	.long	1974
-	.long	3259
-	.globl	idx
+	.long	1
+	.long	2
+	.globl	x
 	.align 4
-idx:
+x:
 	.long	1
 	.def	__main;	.scl	2;	.type	32;	.endef
 	.text
@@ -20,16 +20,15 @@ main:
 	.seh_pushreg	%rbp
 	movq	%rsp, %rbp
 	.seh_setframe	%rbp, 0
-	subq	$32, %rsp
-	.seh_stackalloc	32
+	subq	$48, %rsp
+	.seh_stackalloc	48
 	.seh_endprologue
 	call	__main
-	movl	idx(%rip), %eax
-	cltq
-	leaq	0(,%rax,4), %rdx
 	leaq	foo(%rip), %rax
-	movl	(%rdx,%rax), %eax
-	addq	$32, %rsp
+	movq	%rax, -8(%rbp)
+	movq	-8(%rbp), %rax
+	movl	(%rax), %eax
+	addq	$48, %rsp
 	popq	%rbp
 	ret
 	.seh_endproc
