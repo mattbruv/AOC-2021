@@ -1,3 +1,7 @@
+.data
+
+.global nums
+nums:
 .long 8462
 .long 6981
 .long 3714
@@ -2235,3 +2239,4 @@
 .long 8262
 .long 2666
 .long 7147
+
