@@ -8,49 +8,38 @@ ans:
 
 .global part1
 part1:
-    movl $0, %ebx # highestSoFar
-    movl $0, %ecx # counter
-
+    movl $0, %ecx
 .ResetAndAdd:
-    movl $0, %edx # accumulator
-
+    movl $0, %edx
 .AddNext:
     leaq nums(%rip), %rax
     addq %rcx,  %rax 
     movl (%rax), %eax
     addl $4, %ecx
-
     cmpl $-1, %eax
     je .NextElf
-
     addl %eax, %edx
     jmp .AddNext
-
 .NextElf:
-    # iif we have looked through all the numbers, return
     cmpl $8948, %ecx
     jge .Finish
-
-    # check if new sum is > ans[0] through ans[2]
     movl ans(%rip), %ebx
-    cmpl %ebx, %edx # compare ans[0] to accumulator
+    cmpl %ebx, %edx 
     jle .Ans1
     movl %edx, ans(%rip)
     jmp .ResetAndAdd
     .Ans1:
     movl 4+ans(%rip), %ebx
-    cmpl %ebx, %edx # compare ans[1] to accumulator
+    cmpl %ebx, %edx 
     jle .Ans2
     movl %edx, 4+ans(%rip)
     jmp .ResetAndAdd
     .Ans2:
     movl 8+ans(%rip), %ebx
-    cmpl %ebx, %edx # compare ans[2] to accumulator
+    cmpl %ebx, %edx 
     jle .ResetAndAdd
     movl %edx, 8+ans(%rip)
     jmp .ResetAndAdd
-
-
 .Finish:
     movl ans(%rip), %eax
     ret
