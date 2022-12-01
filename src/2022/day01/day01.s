@@ -1,5 +1,10 @@
-.text
+.data
+ans:
+.long 0
+.long 0
+.long 0
 
+.text
 
 .global part1
 part1:
@@ -35,12 +40,16 @@ part1:
     jmp .ResetAndAdd
 
 .Finish:
+    leaq ans(%rip), %rax
+    movl $12345, (%rax)
     movl %ebx, %eax
     ret
 
 .global part2
 part2:
-    movl $0, %eax
+
+    leaq ans(%rip), %rax
+    movl (%rax), %eax
     ret
 
 
