@@ -46,8 +46,7 @@ part1:
 
 .global part2
 part2:
-    movl $0, %eax
-    addl ans(%rip), %eax
+    movl ans(%rip), %eax
     addl 4+ans(%rip), %eax
     addl 8+ans(%rip), %eax
     ret
