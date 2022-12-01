@@ -14,6 +14,10 @@ main:
 	.seh_endprologue
 	call	__main
 	movl	$-1, -4(%rbp)
+	cmpl	$3258, -4(%rbp)
+	jle	.L2
+	movl	$420, -8(%rbp)
+.L2:
 	movl	$0, %eax
 	addq	$48, %rsp
 	popq	%rbp
