@@ -31,25 +31,36 @@ part1:
     cmpl $8948, %ecx
     jge .Finish
 
-    # check if new sum is > ebx
-    cmpl %ebx, %edx
+    # check if new sum is > ans[0] through ans[2]
+    movl ans(%rip), %ebx
+    cmpl %ebx, %edx # compare ans[0] to accumulator
+    jle .Ans1
+    movl %edx, ans(%rip)
+    jmp .ResetAndAdd
+    .Ans1:
+    movl 4+ans(%rip), %ebx
+    cmpl %ebx, %edx # compare ans[1] to accumulator
+    jle .Ans2
+    movl %edx, 4+ans(%rip)
+    jmp .ResetAndAdd
+    .Ans2:
+    movl 8+ans(%rip), %ebx
+    cmpl %ebx, %edx # compare ans[2] to accumulator
     jle .ResetAndAdd
-
-    # it's greater than
-    movl %edx, %ebx
+    movl %edx, 8+ans(%rip)
     jmp .ResetAndAdd
 
+
 .Finish:
-    leaq ans(%rip), %rax
-    movl $12345, (%rax)
-    movl %ebx, %eax
+    movl ans(%rip), %eax
     ret
 
 .global part2
 part2:
-
-    leaq ans(%rip), %rax
-    movl (%rax), %eax
+    movl $0, %eax
+    addl ans(%rip), %eax
+    addl 4+ans(%rip), %eax
+    addl 8+ans(%rip), %eax
     ret
 
 
