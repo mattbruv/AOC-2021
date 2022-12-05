@@ -39,8 +39,12 @@ def part1(layout, moves):
 
     for move in moves:
         cuanto, de, a = move
+        out = []
         for _ in range(cuanto):
-            crates[a].append(crates[de].pop())
+            out.append(crates[de].pop())
+        out.reverse()
+        for item in out:
+            crates[a].append(item)
 
     return "".join([x[-1] for x in crates])
 
