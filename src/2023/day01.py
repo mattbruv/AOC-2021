@@ -1,3 +1,5 @@
+import time
+
 
 
 lines = list(map(str.strip, open("input.txt").readlines()))
@@ -22,7 +24,14 @@ def toNumbers(string):
 
     return int(ns[0] + ns[-1])
 
+t0 = time.time()
+
 part1 = list(map(p1, lines))
 part2 = list(map(toNumbers, lines))
+
+t2 = time.time()
+
 print(sum(part1))
 print(sum(part2))
+
+print(t2 - t0)
