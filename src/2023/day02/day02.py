@@ -27,9 +27,25 @@ def isValidPart1(roll):
                 return False
     return True
 
+def part2Power(roll):
+    test = {
+        "red": 0,
+        "green": 0,
+        "blue": 0,
+    }
+    hands = roll[1]
+    for hand in hands:
+        for cube in hand:
+            if cube[0] > test[cube[1]]:
+                test[cube[1]] = cube[0]
+    return test["blue"] * test["green"] * test["red"]
+
 data = list(map(parse, lines))
 
 part1 = list(filter(isValidPart1, data))
 part1 = [x[0] for x in part1]
-
 print(sum(part1))
+
+part2 = list(map(part2Power, data))
+
+print(sum(part2))
