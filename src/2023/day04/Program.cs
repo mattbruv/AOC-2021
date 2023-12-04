@@ -6,6 +6,12 @@ var file = File.Open("../../../input.txt", FileMode.Open);
 var input = new StreamReader(file).ReadToEnd().Trim().Split(Environment.NewLine);
 var cards = input.Select(parseCard).ToList();
 
+var part1 = cards
+    .Select(card => card.MyNumbers.Where(n => card.WinningNumbers.Contains(n)).ToList())
+    .Select(ns => (int)(Math.Pow(2, ns.Count - 1)))
+    .Sum();
+
+Console.WriteLine(part1);
 
 static List<int> toInts(List<string> strings)
 {
