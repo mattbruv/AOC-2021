@@ -1,5 +1,5 @@
 ﻿
-var file = File.Open("../../../input.txt", FileMode.Open);
+var file = File.Open("../../../test.txt", FileMode.Open);
 var input = new StreamReader(file).ReadToEnd().Trim().Split(Environment.NewLine);
 var cards = input.Select(parseCard).ToList();
 
@@ -9,6 +9,27 @@ var part1 = cards
     .Sum();
 
 Console.WriteLine(part1);
+
+var part2 = GetCopies(cards.First(), cards);
+
+Console.WriteLine(part2);
+
+static int GetCount(Card card)
+{
+}
+
+static List<Card> GetCopies(Card card, List<Card> cards)
+{
+    var winners = card.Winners.Count;
+    return cards.Skip(card.CardNumber).Take(winners).Select(x => new Card
+    {
+        CardNumber = x.CardNumber,
+        MyNumbers = x.MyNumbers,
+        WinningNumbers = x.WinningNumbers,
+        Cards = GetCopies(x, cards)
+    }).ToList();
+}
+
 
 static List<int> toInts(List<string> strings)
 {
