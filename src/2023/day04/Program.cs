@@ -1,14 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-
-
+﻿
 var file = File.Open("../../../input.txt", FileMode.Open);
 var input = new StreamReader(file).ReadToEnd().Trim().Split(Environment.NewLine);
 var cards = input.Select(parseCard).ToList();
 
 var part1 = cards
-    .Select(card => card.MyNumbers.Where(n => card.WinningNumbers.Contains(n)).ToList())
-    .Select(ns => (int)(Math.Pow(2, ns.Count - 1)))
+    .Where(card => card.Winners.Any())
+    .Select(card => (int)Math.Pow(2, card.Winners.Count - 1))
     .Sum();
 
 Console.WriteLine(part1);
@@ -39,4 +36,8 @@ class Card
     public int CardNumber { get; set; }
     public List<int> WinningNumbers { get; set; } = new();
     public List<int> MyNumbers { get; set; } = new();
+    
+    public List<int> Winners => WinningNumbers.Intersect(MyNumbers).ToList();
+
+    public List<Card> Cards { get; set; } = new();
 }
