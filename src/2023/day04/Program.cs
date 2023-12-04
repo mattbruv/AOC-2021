@@ -1,7 +1,7 @@
 ﻿
 using System.Collections.Specialized;
 
-var file = File.Open("../../../test.txt", FileMode.Open);
+var file = File.Open("../../../input.txt", FileMode.Open);
 var input = new StreamReader(file).ReadToEnd().Trim().Split(Environment.NewLine);
 var cards = input.Select(parseCard).ToList();
 
@@ -12,17 +12,14 @@ var part1 = cards
 
 Console.WriteLine(part1);
 
-cards.First().Cards = GetCopies(cards.First(), cards);
-var part2 = cards.First().CountCards();
+foreach (var card in  cards)
+{
+    card.Cards = GetCopies(card, cards);
+}
+
+var part2 = cards.Sum(x => x.Count);
 
 Console.WriteLine(part2);
-
-static int GetCount(Card card)
-{
-    Console.WriteLine(card.CardNumber);
-    if (card.Cards.Count == 0) return 1;
-    return card.Cards.Select(GetCount).Sum();
-}
 
 static List<Card> GetCopies(Card card, List<Card> cards)
 {
@@ -68,15 +65,5 @@ class Card
 
     public List<Card> Cards { get; set; } = new();
 
-    public int CountCards()
-    {
-        int count = 1;
-
-        foreach (var card in Cards)
-        {
-            count += card.CountCards();
-        }
-
-        return count;
-    }
+    public int Count => 1 + Cards.Select(x => x.Count).Sum();
 }
