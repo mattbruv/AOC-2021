@@ -12,13 +12,16 @@ var numbers = lines
         surroundingChars = n.Indicies
             .SelectMany(i => GetSurroundingCharacters(i.X, i.Y, characterGrid))
             .Where(c => char.IsNumber(c.Value) == false && c.Value != '.')
-            .DistinctBy(z => (z.X, z.Y))
+            .DistinctBy(z => (z.X, z.Y)).ToList()
     })
     .ToList();
-// select numbers with their row
 
 
-Console.WriteLine(numbers);
+var part1 = numbers
+    .Where(n => n.surroundingChars.Any())
+    .Sum(n => n.Number.AsNumber);
+
+Console.WriteLine(part1);
 
 return;
 
@@ -44,8 +47,8 @@ static List<ParsedCharacter> GetSurroundingCharacters(int x, int y, List<List<ch
     var yMax = grid.Count;
 
     return offsets
-        .Where(offset => offset.X >= 0 && offset.X <= xMax)
-        .Where(offset => offset.Y >= 0 && offset.Y <= yMax)
+        .Where(offset => offset.X >= 0 && offset.X < xMax)
+        .Where(offset => offset.Y >= 0 && offset.Y < yMax)
         .Select(offset => new ParsedCharacter
         {
             Value = grid[offset.Y][offset.X],
