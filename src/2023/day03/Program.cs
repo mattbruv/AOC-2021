@@ -1,7 +1,6 @@
-﻿using System.Formats.Tar;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
-var lines = File.ReadAllLines("../../../test.txt");
+var lines = File.ReadAllLines("../../../input.txt");
 var characterGrid = lines.Select(x => x.ToList()).ToList();
 
 var numbers = lines
@@ -81,7 +80,7 @@ class ParsedNumber
 {
     public int Index { get; set; }
     public int Row { get; set; }
-    public List<(int X, int Y)> Indicies => Enumerable.Range(Index, Index + Value.Length).Select(x => (x, Row)).ToList();
+    public List<(int X, int Y)> Indicies => Enumerable.Range(Index, Value.Length).Select(x => (x, Row)).ToList();
     public string Value { get; set; }
     public int AsNumber => Int32.Parse(Value);
 }
