@@ -19,7 +19,14 @@ def calculate(time: int, distance: int):
     xs = [x for x in xs if x > distance]
     return len(xs)
 
-
 part1 = list(map(lambda x: calculate(times[x], distance[x]), range(0, len(times))))
 part1 = reduce(lambda x, y: x * y, part1)
+
 print(part1)
+
+time2 = int("".join([str(x) for x in times]))
+distance2 = int("".join([str(x) for x in distance]))
+
+part2 = calculate(time2, distance2)
+
+print(part2)
