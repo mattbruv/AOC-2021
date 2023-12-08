@@ -6,3 +6,5 @@ data
 *.exe
 *.o
 input.*
+target
+*.lock
