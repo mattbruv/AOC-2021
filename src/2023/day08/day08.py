@@ -45,4 +45,29 @@ def part1(obj):
 
     return i
 
-print(part1(input))
+def part2(obj, starts):
+    dirs = obj["dirs"]
+    dir = 0
+    keys = starts
+
+    i = 0
+
+    while not all([x[-1] == 'Z' for x in keys]):
+        nextNode = []
+        direction = dirs[dir]
+        for node in keys:
+            current = obj[node][direction]
+            nextNode.append(current)
+
+        keys = nextNode
+        i += 1
+        dir = i % len(dirs) 
+        if i % 100000 == 0:
+            print(i, keys)
+
+    return i
+
+# print(part1(input))
+
+starts = [x for x in input.keys() if x[-1] == "A"]
+print(part2(input, starts))
