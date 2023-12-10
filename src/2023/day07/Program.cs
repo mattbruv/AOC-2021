@@ -116,15 +116,3 @@ class Card
         _ => throw new Exception("Invalid card")
     };
 }
-class CardComparer : IComparer<List<int>>
-{
-    public int Compare(List<int> x, List<int> y)
-    {
-        for (int i = 0; i < x.Count; i++)
-        {
-            if (x[i] != y[i]) return y[i].CompareTo(x[i]);
-        }
-
-        return y.Count.CompareTo(x.Count);
-    }
-}
