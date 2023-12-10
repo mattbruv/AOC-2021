@@ -41,6 +41,10 @@ var part2 = part2Ordered
 
 Console.WriteLine(part2);
 
+
+// not 247857527
+// not 247921943 (too low)
+
 Hand parseHand(string hand)
 {
     var parts = hand.Split(" ");
@@ -57,6 +61,8 @@ Hand parseHand(string hand)
 class Hand
 {
     public List<Card> Cards { get; set; } = new();
+
+    public string CardString => string.Join("", Cards.Select(x => x.Character));
 
     public int Score => int.Parse(string.Join("",Cards
         .Select(x => x.Value)
@@ -153,6 +159,7 @@ class Hand
                 .ThenByDescending(x => x.TwoPair)
                 .ThenByDescending(x => x.OnePair)
                 .ThenByDescending(x => x.HighCard)
+                .ThenByDescending(x => x.Score)
                 .ToList();
 
             return ordered.First();
