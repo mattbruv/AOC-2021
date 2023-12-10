@@ -1,14 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
 Console.WriteLine("Hello, World!");
 
-var input = File.ReadAllLines("../../../input.txt");
+var input = File.ReadAllLines("../../../test.txt");
 var hands = input.Select(parseHand).ToList();
 
-foreach (var hand in hands)
-{
-    Console.WriteLine(hand.Cards);
-    Console.WriteLine(hand.Bid);
-}
 
 Hand parseHand(string hand)
 {
@@ -27,6 +22,60 @@ class Hand
 {
     public List<Card> Cards { get; set; } = new();
     public int Bid { get; set; }
+    public bool FiveOfAKind => Cards.GroupBy(x => x.Character).Count() == 1;
+    
+    public bool FourOfAKind => Cards.GroupBy(x => x.Character)
+        .OrderByDescending(x => x.Count())
+        .First().Count() == 4;
+
+    public bool FullHouse
+    {
+        get
+        {
+            var groups = Cards
+                .GroupBy(x => x.Character)
+                .OrderByDescending(x => x.Count()).ToList();
+
+            return groups.Count == 2 && groups.First().Count() == 3;
+        }
+    }
+
+    public bool ThreeOfAKind
+    {
+        get
+        {
+            var groups = Cards
+                .GroupBy(x => x.Character)
+                .OrderByDescending(x => x.Count()).ToList();
+            return groups.Count == 3 && groups.First().Count() == 3;
+        }
+    }
+
+    public bool TwoPair
+    {
+        get
+        {
+            var groups = Cards
+                .GroupBy(x => x.Character)
+                .OrderByDescending(x => x.Count()).ToList();
+            
+            return groups.Count == 3 && groups[0].Count() == 2 && groups[1].Count() == 2;
+        }
+    }
+    
+    public bool OnePair
+    {
+        get
+        {
+            var groups = Cards
+                .GroupBy(x => x.Character)
+                .OrderByDescending(x => x.Count()).ToList();
+            
+            return groups.Count == 4 && groups[0].Count() == 2;
+        }
+    }
+
+    public bool HighCard => Cards.GroupBy(x => x.Character).Count() == 5;
 }
 
 class Card
