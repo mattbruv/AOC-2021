@@ -1,7 +1,7 @@
 ﻿
 Console.WriteLine("Hello, World!");
 
-var input = File.ReadAllLines("../../../test.txt");
+var input = File.ReadAllLines("../../../input.txt");
 var hands = input.Select(parseHand).ToList();
 
 
@@ -31,7 +31,7 @@ var part2Ordered = hands.Select(x => new {OriginalHand = x, Joker = x.JokerHand}
     .ThenBy(x => x.Joker.TwoPair)
     .ThenBy(x => x.Joker.OnePair)
     .ThenBy(x => x.Joker.HighCard)
-    .ThenBy(x => x.OriginalHand.Score)
+    .ThenBy(x => x.OriginalHand.ScorePart2)
     .ToList();
 
 var part2 = part2Ordered
@@ -66,6 +66,10 @@ class Hand
 
     public int Score => int.Parse(string.Join("",Cards
         .Select(x => x.Value)
+        .Select(x => x.ToString("D2")).ToList()));
+    
+    public int ScorePart2 => int.Parse(string.Join("",Cards
+        .Select(x => x.ValuePart2)
         .Select(x => x.ToString("D2")).ToList()));
 
     public int Bid { get; set; }
