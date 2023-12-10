@@ -1,7 +1,7 @@
 ﻿
 Console.WriteLine("Hello, World!");
 
-var input = File.ReadAllLines("../../../input.txt");
+var input = File.ReadAllLines("../../../test.txt");
 var hands = input.Select(parseHand).ToList();
 
 
@@ -22,6 +22,24 @@ var part1 = ordered
     .Sum();
 
 Console.WriteLine(part1);
+
+var part2Ordered = hands.Select(x => new {OriginalHand = x, Joker = x.JokerHand})
+    .OrderBy(x => x.Joker.FiveOfAKind)
+    .ThenBy(x => x.Joker.FourOfAKind)
+    .ThenBy(x => x.Joker.FullHouse)
+    .ThenBy(x => x.Joker.ThreeOfAKind)
+    .ThenBy(x => x.Joker.TwoPair)
+    .ThenBy(x => x.Joker.OnePair)
+    .ThenBy(x => x.Joker.HighCard)
+    .ThenBy(x => x.OriginalHand.Score)
+    .ToList();
+
+var part2 = part2Ordered
+    .Select((Hand, Index) => new { Hand, Index })
+    .Select(x => x.Hand.Joker.Bid * (x.Index + 1))
+    .Sum();
+
+Console.WriteLine(part2);
 
 Hand parseHand(string hand)
 {
@@ -99,6 +117,47 @@ class Hand
     }
 
     public bool HighCard => Cards.GroupBy(x => x.Character).Count() == 5;
+
+    public Hand JokerHand
+    {
+        get
+        {
+            var chars = "23456789TQKA".Select(x => x).ToList();
+            List<List<Card>> handList = new();
+
+            foreach (var substitute in chars)
+            {
+                var cards = new List<Card>();
+
+                foreach (var card in Cards)
+                {
+                    cards.Add(new Card()
+                    {
+                        Character = card.Character == 'J' ? substitute : card.Character
+                    });
+                }
+                handList.Add(cards);
+            }
+
+            List<Hand> hands = handList.Select(x => new Hand
+            {
+                Cards = x,
+                Bid = Bid,
+            }).ToList();
+            
+            var ordered = hands
+                .OrderByDescending(x => x.FiveOfAKind)
+                .ThenByDescending(x => x.FourOfAKind)
+                .ThenByDescending(x => x.FullHouse)
+                .ThenByDescending(x => x.ThreeOfAKind)
+                .ThenByDescending(x => x.TwoPair)
+                .ThenByDescending(x => x.OnePair)
+                .ThenByDescending(x => x.HighCard)
+                .ToList();
+
+            return ordered.First();
+        }
+    }
 }
 
 class Card
@@ -114,5 +173,11 @@ class Card
         'K' => 13,
         'A' => 14,
         _ => throw new Exception("Invalid card")
+    };
+
+    public int ValuePart2 => Character switch
+    {
+        'J' => 1,
+        _ => Value
     };
 }
