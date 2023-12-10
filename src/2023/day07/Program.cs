@@ -1,9 +1,27 @@
 ﻿
 Console.WriteLine("Hello, World!");
 
-var input = File.ReadAllLines("../../../test.txt");
+var input = File.ReadAllLines("../../../input.txt");
 var hands = input.Select(parseHand).ToList();
 
+
+var ordered = hands
+    .OrderBy(x => x.FiveOfAKind)
+    .ThenBy(x => x.FourOfAKind)
+    .ThenBy(x => x.FullHouse)
+    .ThenBy(x => x.ThreeOfAKind)
+    .ThenBy(x => x.TwoPair)
+    .ThenBy(x => x.OnePair)
+    .ThenBy(x => x.HighCard)
+    .ThenBy(x => x.Score)
+    .ToList();
+
+var part1 = ordered
+    .Select((Hand, Index) => new { Hand, Index })
+    .Select(x => x.Hand.Bid * (x.Index + 1))
+    .Sum();
+
+Console.WriteLine(part1);
 
 Hand parseHand(string hand)
 {
@@ -21,6 +39,11 @@ Hand parseHand(string hand)
 class Hand
 {
     public List<Card> Cards { get; set; } = new();
+
+    public int Score => int.Parse(string.Join("",Cards
+        .Select(x => x.Value)
+        .Select(x => x.ToString("D2")).ToList()));
+
     public int Bid { get; set; }
     public bool FiveOfAKind => Cards.GroupBy(x => x.Character).Count() == 1;
     
@@ -92,4 +115,16 @@ class Card
         'A' => 14,
         _ => throw new Exception("Invalid card")
     };
+}
+class CardComparer : IComparer<List<int>>
+{
+    public int Compare(List<int> x, List<int> y)
+    {
+        for (int i = 0; i < x.Count; i++)
+        {
+            if (x[i] != y[i]) return y[i].CompareTo(x[i]);
+        }
+
+        return y.Count.CompareTo(x.Count);
+    }
 }
