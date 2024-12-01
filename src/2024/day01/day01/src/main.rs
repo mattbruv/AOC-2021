@@ -1,3 +1,6 @@
+use core::time;
+use std::time::Instant;
+
 fn main() {
     let original_pairs: Vec<_> = include_str!("input.txt")
         .lines()
@@ -19,9 +22,11 @@ fn main() {
     //println!("{:?}", original_pairs);
     //println!("{:?}", firsts);
 
+    let time_part1 = Instant::now();
     let part1: i32 = it.enumerate().map(|(_, (a, b))| (a - b).abs()).sum();
-    println!("{:?}", part1);
+    println!("{:?} in {:?}", part1, time_part1.elapsed());
 
+    let time_part2 = Instant::now();
     let part2: i32 = firsts
         .iter()
         .map(|x| {
@@ -30,5 +35,5 @@ fn main() {
         })
         .sum();
 
-    println!("{:?}", part2);
+    println!("{:?} in {:?}", part2, time_part2.elapsed());
 }
